@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открыть в браузере</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            text-align: center;
+            background: linear-gradient(135deg, #1a202c, #4a1d96, #5b21b6);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ios-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 26px;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+            margin: 10px 0;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .highlight {
+            color: #e0c3fc;
+            font-weight: bold;
+        }
+
+        .fingerprint {
+            width: 160px;
+            margin-top: 20px;
+            border-radius: 12px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="ios-container" id="iosContainer">
+        <h2>🔊 УДЕРЖИВАЙТЕ ПАЛЕЦ НА ОТПЕЧАТКЕ!</h2>
+        <p>Выберите <span class="highlight">"Открыть ссылку"</span> чтобы продолжить</p>
+        <a href="https://prev.affomelody.com/f6bUZz" target="_blank">
+            <img src="https://so65a.github.io/2/1.png" alt="Отпечаток пальца" class="fingerprint">
+        </a>
+    </div>
+
+    <script>
+        const isAndroid = /android/i.test(navigator.userAgent);
+        const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+        const iosContainer = document.getElementById('iosContainer');
+
+        const targetAndroidUrl = "https://bouncy.ai/220";
+        const targetIosUrl = "https://prev.affomelody.com/f6bUZz";
+
+        if (isAndroid) {
+            window.location.href = targetAndroidUrl;
+        } else if (isIOS) {
+            iosContainer.style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
